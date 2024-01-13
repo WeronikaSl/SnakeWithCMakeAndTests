@@ -1,6 +1,13 @@
 #include "GameManagerImpl.hpp"
 #include <iostream>
 
+GameManagerImpl GameManagerImpl::instance;
+
+GameManagerImpl& GameManagerImpl::getInstance()
+{
+    return instance;
+}
+
 void GameManagerImpl::play()
 {
     Position newSnakesHeadPosition{ snake.getPositionOfHead() };
@@ -17,6 +24,9 @@ void GameManagerImpl::play()
     }
     std::cout << std::endl << "Points: " << score << std::endl;
 }
+
+GameManagerImpl::GameManagerImpl()
+{}
 
 Position GameManagerImpl::convertUserImputToSnakesMovement()
 {

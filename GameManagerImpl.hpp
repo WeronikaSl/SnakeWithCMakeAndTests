@@ -6,11 +6,15 @@
 
 using namespace std::chrono_literals;
 
-class GameManagerImpl : public GameManager //change to Singleton
+class GameManagerImpl : public GameManager //change to Singleton to practice
 {
 public:
+	GameManagerImpl(const GameManagerImpl&) = delete;
+	static GameManagerImpl& getInstance();
 	void play() override;
 private:
+	GameManagerImpl();
+	static GameManagerImpl instance;
 	UserInteractionHandlerImpl userInteractionHandler;
 	BoardImpl board;
 	FruitImpl fruit;

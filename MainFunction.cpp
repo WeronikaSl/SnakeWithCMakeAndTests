@@ -4,6 +4,5 @@
 
 int main()
 {
-	GameManagerImpl gameManager;
-	gameManager.play();
+	GameManagerImpl::getInstance().play();
 }
